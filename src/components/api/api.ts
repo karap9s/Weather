@@ -14,6 +14,6 @@ export const fetchWeather = async (lat: number, lon: number) => {
 
 export const fetchOpenWeather = async (lat: number, lon: number) => {
   return axios.get(
-    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m`
+    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m&current_weather=true`
   );
 };

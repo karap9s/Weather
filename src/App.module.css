@@ -3,3 +3,7 @@
   height: 100vh;
   background-image: linear-gradient(to right,#F0B5BC, #8C6BAE);
 }
+
+.el {
+  margin-left: 15px;
+}
