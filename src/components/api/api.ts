@@ -13,7 +13,21 @@ export const fetchWeather = async (lat: number, lon: number) => {
 };
 
 export const fetchOpenWeather = async (lat: number, lon: number) => {
+  const date = new Date();
+  const year = date.getFullYear();
+  let month = null;
+  let day = null;
+  if (date.getMonth().toString().length === 1) {
+    month = `0${date.getMonth() + 1}`;
+  } else {
+    month = date.getMonth() + 1;
+  }
+  if (date.getDate().toString().length === 1) {
+    day = `0${date.getDate()}`;
+  } else {
+    day = date.getDate();
+  }
   return axios.get(
-    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m&current_weather=true`
+    `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&hourly=temperature_2m&current_weather=true&start_date=${year}-${month}-${day}&end_date=${year}-${month}-${day}`
   );
 };

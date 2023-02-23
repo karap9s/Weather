@@ -21,14 +21,8 @@ class Store {
         this.coords.lon = data.data[0].lon;
       });
     });
-    // await fetchWeather(this.coords.lat, this.coords.lon).then((data: any) => {
-    //   runInAction(() => {
-    //     this.data = data;
-    //   });
-    // });
     await fetchOpenWeather(this.coords.lat, this.coords.lon).then(
       (data: any) => {
-        console.log(data.data);
         runInAction(() => {
           this.data = data.data;
         });
